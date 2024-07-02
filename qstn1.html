@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qstn-1</title>
+</head>
+<body>
+  <p style="font-size: 25px; font-weight: bold; font-family: Arial;">
+    1. Create a function fetchData that returns a Promise. The Promise should resolve with the string "Data fetched successfully" after a delay of 2 seconds. Use setTimeout to simulate the delay. Test your function by calling it and using .then() to log the resolved value to the console.
+  </p>
+
+
+  <script>
+    function fetchData() {
+      return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+          resolve('Data fetched successfully')
+        },2000)
+      })
+    }
+
+    fetchData().then((result)=>{
+      console.log({result});
+    });
+  </script>
+</body>
+</html>
