@@ -27,11 +27,11 @@
 
     async function fetchDataAwait() {
       try{
-        const result = await fetchData(36);
+        const result = await fetchData(26);
         console.log({result});
       }
       catch(err) {
-        alert('Failed to fetch data');
+        alert(err);
       }
     }
     

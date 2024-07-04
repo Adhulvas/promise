@@ -1,0 +1,21 @@
+body {
+  font-family: Arial;
+}
+
+.flags {
+  width: 300px;
+  height: 150px;
+}
+
+.cards {
+  width: 300px;
+  border: 1px solid black;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  background-color: antiquewhite;
+}

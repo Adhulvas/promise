@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qstn-4</title>
+  <link rel="stylesheet" href="qstn4.css">
+</head>
+<body>
+    <!-- 4. Write a function "getCountryData" that fetches data from the public API " https://restcountries.com/v3.1/all ". Parse the JSON response and log the data to the console. Additionally, use DOM manipulation to display the data on the web page. Make sure to handle any errors that might occur during the fetch operation and display an appropriate error message in the div if the fetch fails. (deploy the webpage on github) -->
+  <div id="container"></div>
+  <script>
+    function getCountryData() {
+      fetch('https://restcountries.com/v3.1/all')
+        .then((result)=>{
+          return result.json()
+        })
+        .then((result)=>{
+          console.log(result);
+          for (let i = 0; i < result.length; i++) {
+            const imageContainer=document.createElement('div')
+            imageContainer.className='cards'
+
+            const countryName=document.createElement('h2')
+            countryName.innerText=result[i].name.common
+            imageContainer.appendChild(countryName)
+
+            const region=document.createElement('p')
+            region.innerText=`Region: ${result[i].region}`
+            imageContainer.appendChild(region)
+
+            const population=document.createElement('p')
+            population.innerText=`Population: ${result[i].population}`
+            imageContainer.appendChild(population)
+
+            const capital=document.createElement('p')
+            capital.innerText=`Capital: ${result[i].capital}`
+            imageContainer.appendChild(capital)
+
+            const image = document.createElement('img')
+            image.src = result[i].flags.png
+            image.className = 'flags'
+            imageContainer.appendChild(image)
+
+            document.getElementById('container').appendChild(imageContainer)
+          }
+        })
+        .catch((error)=>{
+          alert('Failed fetching country data' , error);
+        })
+      }
+
+      getCountryData();
+  </script>
+</body>
+</html>
